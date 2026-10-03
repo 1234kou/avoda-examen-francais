@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AVODA Académie — Pré-inscriptions</title>
+<style>
+:root{--blue:#1976d2;--navy:#082f5b;--line:#dce6f0;--bg:#f5f8fc;--green:#16855a}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:#18324a}
+header{background:#fff;border-bottom:1px solid var(--line);padding:18px 5%;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{font-size:22px;margin:0;color:var(--navy)} .sub{font-size:13px;color:#60758a;margin-top:5px}
+main{width:min(1500px,94%);margin:24px auto}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+input{flex:1;min-width:240px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+button,a.btn{border:0;border-radius:10px;padding:12px 16px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;cursor:pointer}
+a.export{background:var(--green)}
+.summary{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;font-weight:700}
+.table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:1250px}
+th,td{padding:11px 10px;border-bottom:1px solid #edf2f7;text-align:left;font-size:13px;vertical-align:top}
+th{position:sticky;top:0;background:#eef5fc;color:var(--navy);z-index:1}
+tr:hover td{background:#fafcff}
+.phone{white-space:nowrap}.phone a{color:var(--blue);font-weight:700;text-decoration:none}
+.whatsapp{display:inline-block;margin-left:6px;text-decoration:none;font-size:16px}
+.empty,.error{padding:28px;text-align:center}.error{color:#a32020}
+@media(max-width:700px){header{padding:16px 4%}main{width:96%}h1{font-size:19px}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>AVODA Académie — Administration des pré-inscriptions</h1>
+    <div class="sub">Espace privé • données des parents et des candidats</div>
+  </div>
+</header>
+<main>
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Rechercher parent, téléphone, élève, classe, examen…">
+    <button id="refresh">Actualiser</button>
+    <a class="btn export" href="/api/admin/preinscriptions.csv">Exporter CSV / Excel</a>
+  </div>
+  <div class="summary" id="summary">Chargement…</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th><th>Parent</th><th>Téléphone</th><th>E-mail</th>
+          <th>Élève</th><th>Classe</th><th>Examen</th><th>Parcours</th><th>Message</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div id="status"></div>
+</main>
+<script>
+let data = [];
+const rows = document.getElementById("rows");
+const summary = document.getElementById("summary");
+const status = document.getElementById("status");
+const search = document.getElementById("search");
+
+function esc(v){
+  return String(v ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+function waNumber(v){ return String(v || "").replace(/\D/g,""); }
+function render(){
+  const q = search.value.trim().toLowerCase();
+  const filtered = data.filter(x => Object.values(x).some(v => String(v ?? "").toLowerCase().includes(q)));
+  summary.textContent = `${filtered.length} pré-inscription(s) affichée(s) sur ${data.length}`;
+  rows.innerHTML = filtered.map(x => {
+    const date = x.date_creation ? new Date(x.date_creation).toLocaleString("fr-FR") : "";
+    const parent = [x.prenom_parent,x.nom_parent].filter(Boolean).join(" ");
+    const eleve = [x.prenom_eleve,x.nom_eleve].filter(Boolean).join(" ");
+    const wa = waNumber(x.telephone);
+    return `<tr>
+      <td>${esc(date)}</td>
+      <td>${esc(parent)}</td>
+      <td class="phone"><a href="tel:${esc(x.telephone)}">${esc(x.telephone)}</a>${wa ? ` <a class="whatsapp" target="_blank" rel="noopener" href="https://wa.me/${wa}" title="WhatsApp">💬</a>` : ""}</td>
+      <td>${x.email ? `<a href="mailto:${esc(x.email)}">${esc(x.email)}</a>` : ""}</td>
+      <td><strong>${esc(eleve)}</strong></td>
+      <td>${esc(x.classe_actuelle)}</td>
+      <td>${esc(x.examen)}</td>
+      <td>${esc(x.type_parcours)}</td>
+      <td>${esc(x.message)}</td>
+    </tr>`;
+  }).join("");
+  status.innerHTML = filtered.length ? "" : '<div class="empty">Aucun résultat.</div>';
+}
+async function load(){
+  status.innerHTML = "";
+  summary.textContent = "Chargement…";
+  try{
+    const r = await fetch("/api/admin/preinscriptions", {cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    data = j.preinscriptions || [];
+    render();
+  }catch(e){
+    summary.textContent = "Erreur";
+    status.innerHTML = '<div class="error">Impossible de charger les pré-inscriptions.</div>';
+  }
+}
+search.addEventListener("input", render);
+document.getElementById("refresh").addEventListener("click", load);
+load();
+</script>
+</body>
+</html>
