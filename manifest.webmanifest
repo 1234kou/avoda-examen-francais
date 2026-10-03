@@ -1,0 +1,9 @@
+{
+  "name": "AVODA Académie — Parcours France",
+  "short_name": "AVODA France",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7fafd",
+  "theme_color": "#0c2a4c",
+  "icons": [{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AVODA Académie — Parcours France | DNB & Bac français</title>
+<meta name="description" content="Découvrez Parcours France AVODA Académie : DNB et Bac français en candidature individuelle, accompagnement, tarifs et pré-inscription.">
+<meta name="theme-color" content="#0c2a4c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AVODA Académie — Parcours France">
+<meta property="og:description" content="DNB & Bac français • Informations • Accompagnement • Tarifs • Pré-inscription">
+<meta property="og:site_name" content="AVODA Académie">
+<meta property="og:url" content="https://parcours-france-avoda.onrender.com">
+<meta property="og:image" content="/og-parcours-france.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --navy:#082f5b;--blue:#1976d2;--sky:#eaf5ff;--cyan:#16a6d9;
+  --green:#16855a;--gold:#d9a62e;--ink:#172333;--muted:#65758a;
+  --line:#dce8f3;--white:#fff;--shadow:0 18px 50px rgba(8,47,91,.12)
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:#dfeaf4;color:var(--ink);overflow:hidden}
+button,a{-webkit-tap-highlight-color:transparent}
+.app{height:100dvh;max-width:1120px;margin:auto;display:flex;flex-direction:column;background:#f8fbfe;box-shadow:0 0 50px rgba(8,47,91,.18)}
+header{height:78px;flex:none;display:flex;align-items:center;padding:10px 20px;background:rgba(255,255,255,.97);border-bottom:1px solid #d8e6f2;gap:13px;position:relative;z-index:20}
+header:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;background:linear-gradient(90deg,var(--navy),var(--blue),var(--cyan))}
+.logo{width:50px;height:50px;border-radius:15px;background:linear-gradient(145deg,var(--navy),var(--blue));box-shadow:0 8px 20px rgba(25,118,210,.25);color:#fff;display:grid;place-items:center;font-weight:900;font-size:28px}
+.brand b{display:block;color:var(--navy);font-size:18px;letter-spacing:.02em}.brand small{display:block;color:var(--blue);font-size:10px;font-weight:900;letter-spacing:.14em;margin-top:4px}
+.viewport{position:relative;flex:1;overflow:hidden;background:radial-gradient(circle at 90% 0,#dff3ff 0,transparent 28%),linear-gradient(145deg,#f9fcff,#eef6fc)}
+.track{height:100%;display:flex;transition:transform .42s cubic-bezier(.22,.7,.2,1);will-change:transform}
+.screen{min-width:100%;height:100%;padding:28px 28px 102px;overflow-y:auto;scrollbar-width:none}.screen::-webkit-scrollbar{display:none}
+.screen h1{font-size:clamp(25px,4.8vw,40px);line-height:1.08;color:var(--navy);margin:0 0 10px;letter-spacing:-.025em}
+.screen h1:after{content:"";display:block;width:64px;height:5px;border-radius:9px;background:linear-gradient(90deg,var(--gold),var(--blue));margin-top:14px}
+.lead{max-width:800px;color:var(--muted);font-size:clamp(14px,2.3vw,18px);line-height:1.55;margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid var(--line);border-radius:22px;padding:18px 18px 18px 20px;box-shadow:0 10px 30px rgba(8,47,91,.07)}
+.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--blue),var(--cyan))}
+.card h3{margin:0 0 8px;color:var(--navy);font-size:18px}.card p{margin:0;line-height:1.55}
+.check{display:flex;align-items:flex-start;gap:11px;margin:11px 0;padding:12px 14px;background:rgba(255,255,255,.82);border:1px solid #e1ebf4;border-radius:15px;box-shadow:0 6px 18px rgba(8,47,91,.045);line-height:1.4}
+.check i{flex:none;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-style:normal;background:#e5f7ef;color:var(--green);font-weight:900}
+.price{font-size:clamp(31px,6vw,54px);font-weight:950;color:var(--navy);letter-spacing:-.035em;margin:15px 0 3px}
+.pay{display:inline-block;background:#e6f7ef;color:var(--green);font-weight:900;border-radius:999px;padding:8px 13px;margin:4px 0 18px}
+.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:22px}
+.btn{appearance:none;border:0;border-radius:15px;padding:14px 18px;font-weight:850;font-size:14px;cursor:pointer;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;text-decoration:none;text-align:center;box-shadow:0 9px 22px rgba(25,118,210,.18);transition:transform .15s ease,box-shadow .15s ease}
+.btn:active{transform:scale(.985)}.btn.green{background:linear-gradient(135deg,#116f4a,var(--green))}.btn.navy{background:var(--navy)}.btn.cyan{background:linear-gradient(135deg,#0c8fbe,var(--cyan))}.btn.light{background:#edf4fa;color:var(--navy);box-shadow:none;border:1px solid #d7e5f1}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
+.heroPanel{background:linear-gradient(145deg,var(--navy),#104f8b 65%,var(--blue));border-radius:26px;padding:28px;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.heroPanel:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-80px;top:-90px;background:rgba(255,255,255,.09)}
+.heroPanel h1{color:#fff}.heroPanel h1:after{background:var(--gold)}.heroPanel .lead{color:#e6f2ff}
+.heroBadge{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid rgba(255,255,255,.25);border-radius:999px;font-size:11px;font-weight:850;letter-spacing:.08em;margin-bottom:18px}
+.trust{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.trust span{font-size:11px;font-weight:800;background:rgba(255,255,255,.11);padding:8px 10px;border-radius:10px}
+.sideStack{display:grid;gap:14px}.mini{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 28px rgba(8,47,91,.07)}.mini strong{display:block;color:var(--navy);font-size:17px;margin-bottom:6px}.mini span{color:var(--muted);font-size:13px;line-height:1.45}
+footer{position:absolute;left:0;right:0;bottom:0;min-height:72px;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1px solid #dbe7f1;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;z-index:10}
+.dots{display:flex;gap:6px;align-items:center}.dot{width:7px;height:7px;border-radius:99px;background:#cbd7e2;transition:.25s}.dot.on{width:25px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.navbtn{border:0;border-radius:12px;padding:11px 14px;font-weight:850;background:var(--navy);color:#fff}.navbtn:disabled{opacity:.2}.home{background:var(--blue)}
+@media(max-width:650px){
+ header{height:66px;padding:8px 13px}.logo{width:43px;height:43px;border-radius:13px;font-size:24px}.brand b{font-size:16px}.brand small{font-size:9px}
+ .screen{padding:18px 15px 88px}.grid,.hero{grid-template-columns:1fr}.heroPanel{padding:21px;border-radius:22px}.sideStack{grid-template-columns:1fr 1fr}.mini{padding:14px;border-radius:18px}
+ .card{padding:15px;border-radius:18px}.actions .btn{width:100%}.check{padding:10px 11px;margin:9px 0}
+ footer{min-height:64px;padding:8px 10px}.navbtn{padding:10px 11px;font-size:12px}.dots{max-width:92px;overflow:hidden}
+}
+</style>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="AVODA Parcours France">
+</head>
+<body><main class="app"><header><div class="logo">A</div><div class="brand"><b>AVODA ACADÉMIE</b><small>PARCOURS FRANCE</small></div></header><section class="viewport"><div class="track" id="track">
+<section class="screen"><div class="hero"><div class="heroPanel"><div class="heroBadge">AVODA ACADÉMIE • PARCOURS FRANCE</div><h1>DNB & Bac français</h1><p class="lead">Une présentation claire pour comprendre le parcours, choisir sereinement et connaître l’accompagnement AVODA.</p><div class="actions"><button class="btn green" onclick="go(1)">DÉCOUVRIR LE PARCOURS →</button></div><div class="trust"><span>✓ Candidature individuelle</span><span>✓ Suivi pédagogique</span><span>✓ Tuteurs par matière</span></div></div><div class="sideStack"><div class="mini"><strong>DNB français</strong><span>Préparation au Diplôme national du brevet français en candidature libre.</span></div><div class="mini"><strong>Bac français</strong><span>Préparation progressive de la Première à la Terminale.</span></div><div class="mini"><strong>AVODA vous accompagne</strong><span>Suivi administratif, préparation pédagogique et plateforme Parcours France.</span></div></div></div></section>
+<section class="screen"><h1>Pourquoi choisir le Bac français ?</h1><p class="lead">Des raisons simples et concrètes pour élargir les possibilités d’études et d’orientation de votre enfant.</p><div class="grid"><div class="card"><h3>🎓 Diplôme français</h3><p><b>Diplôme français reconnu internationalement</b></p></div><div class="card"><h3>🏛️ Études en France</h3><p><b>Accès aux universités et grandes écoles en France</b></p></div><div class="card"><h3>🌍 Ouverture internationale</h3><p><b>Possibilités d’études dans de nombreux pays</b></p></div><div class="card"><h3>🏫 Double continuité</h3><p><b>Préparation possible tout en poursuivant sa scolarité habituelle</b></p></div><div class="card"><h3>🧭 Plus de choix</h3><p><b>Un second parcours qui élargit les possibilités d’orientation</b></p></div><div class="card"><h3>📚 Parcours structuré</h3><p><b>Préparation progressive et structurée</b></p></div></div><h2 style="color:var(--navy);font-size:clamp(18px,4vw,25px);margin-top:24px">Souhaitez-vous découvrir les parcours proposés par AVODA Académie ?</h2><div class="actions"><button class="btn green" onclick="go(2)">OUI → DÉCOUVRIR LES PARCOURS</button><button class="btn light" onclick="go(0)">NON → RETOUR À L’ACCUEIL</button></div></section>
+<section class="screen"><h1>Choisissez votre parcours</h1><p class="lead">Sélectionnez uniquement l’examen qui vous intéresse.</p><div class="grid"><div class="card"><h3>DNB FRANÇAIS</h3><p>Préparation au DNB français en candidature libre.</p><div class="actions"><button class="btn cyan" onclick="go(3)">OUVRIR → DNB FRANÇAIS</button></div></div><div class="card"><h3>BAC FRANÇAIS</h3><p>Préparation du bac français de la Première à la Terminale.</p><div class="actions"><button class="btn" onclick="go(4)">OUVRIR → BAC FRANÇAIS</button></div></div></div></section>
+<section class="screen"><h1>DNB français avec AVODA</h1><p class="lead">Vous êtes dans le parcours DNB. Aucun passage par le Bac.</p><div class="check"><i>✓</i><span>Préparation aux épreuves du DNB français.</span></div><div class="check"><i>✓</i><span>Organisation du travail sur l’année.</span></div><div class="check"><i>✓</i><span>Suivi régulier et entraînements.</span></div><div class="check"><i>✓</i><span>Accompagnement administratif et pédagogique.</span></div><div class="check"><i>✓</i><span>Accès à la plateforme Parcours France AVODA.</span></div><div class="actions"><button class="btn green" onclick="go(5)">SUIVANT → Tarif DNB</button></div></section>
+<section class="screen"><h1>Bac français avec AVODA</h1><p class="lead">Vous êtes dans le parcours BAC. Aucun passage par le DNB.</p><div class="grid"><div class="card"><h3>Première</h3><p>Début du parcours, préparation progressive et épreuves anticipées.</p></div><div class="card"><h3>Terminale</h3><p>Poursuite de la préparation et épreuves finales.</p></div></div><div class="check"><i>✓</i><span>AVODA accompagne l’élève sur le plan administratif et pédagogique.</span></div><div class="check"><i>✓</i><span>Tuteurs expérimentés pour chaque matière jusqu’au bac.</span></div><div class="actions"><button class="btn green" onclick="go(7)">SUIVANT → Tarif BAC</button></div></section>
+<section class="screen"><h1>Tarif DNB français</h1><div class="price">890 000 FCFA / AN</div><div class="pay">PAYABLE EN 3 TRANCHES</div><div class="card"><h3>Ce tarif prend en compte, sur une durée d’un an :</h3><p>✅ Le suivi administratif<br>✅ La préparation pédagogique<br>✅ Le suivi régulier de l’élève<br>✅ L’entraînement aux différentes épreuves<br>✅ L’accompagnement de l’élève dans son parcours<br>✅ Des tuteurs expérimentés pour chaque matière<br>✅ L’inscription sur la plateforme pédagogique AVODA</p></div><div class="actions"><button class="btn" onclick="go(8)">SUIVANT → Décision d’inscription</button></div></section>
+<section class="screen"><h1>Tarifs DNB / BAC</h1><p class="lead">Choisissez le tarif que vous souhaitez consulter.</p><div class="grid"><div class="card"><h3>DNB FRANÇAIS</h3><div class="price" style="font-size:30px">890 000 FCFA / AN</div><p>Payable en 3 tranches.</p><div class="actions"><button class="btn cyan" onclick="go(5)">OUVRIR → Tarif DNB</button></div></div><div class="card"><h3>BAC FRANÇAIS</h3><div class="price" style="font-size:30px">970 000 FCFA / AN</div><p>Payable en 3 tranches.</p><div class="actions"><button class="btn" onclick="go(7)">OUVRIR → Tarif BAC</button></div></div></div></section>
+<section class="screen"><h1>Tarif Bac français</h1><div class="price">970 000 FCFA / AN</div><div class="pay">PAYABLE EN 3 TRANCHES</div><div class="card"><h3>Ce tarif prend en compte, sur une durée d’un an :</h3><p>✅ Le suivi administratif<br>✅ La préparation pédagogique<br>✅ Le suivi régulier de l’élève<br>✅ L’entraînement aux différentes épreuves<br>✅ L’accompagnement de l’élève d’octobre au Bac par un tuteur expérimenté pour chaque matière<br>✅ L’inscription sur la plateforme pédagogique AVODA</p></div><div class="actions"><button class="btn" onclick="go(8)">SUIVANT → Décision d’inscription</button></div></section>
+<section class="screen"><h1>Souhaitez-vous continuer ?</h1><p class="lead">Après avoir pris connaissance du parcours et du tarif, souhaitez-vous commencer la pré-inscription ?</p><div class="actions"><button class="btn green" onclick="go(9)">OUI → Pré-inscription</button><button class="btn navy" onclick="go(11)">NON → Fin de consultation</button><button class="btn light" onclick="go(6)">REVOIR → Tarifs DNB / BAC</button></div></section>
+<section class="screen"><h1>Pré-inscription</h1><p class="lead">Vous êtes arrivé à l’étape d’inscription. Préparez les informations suivantes.</p><div class="check"><i>✓</i><span>Nom et prénom du parent ou responsable.</span></div><div class="check"><i>✓</i><span>Nom et prénom de l’élève.</span></div><div class="check"><i>✓</i><span>Classe actuelle de l’élève.</span></div><div class="check"><i>✓</i><span>Parcours choisi : DNB français ou Bac français.</span></div><div class="check"><i>✓</i><span>Numéro de téléphone.</span></div><div class="actions"><button class="btn green" onclick="go(10)">SUIVANT → Informations utiles</button></div></section>
+<section class="screen"><h1>Informations utiles</h1><p class="lead">Vous restez dans la présentation. Les liens ci-dessous sont uniquement des accès complémentaires.</p><div class="actions"><a class="btn" target="_blank" href="https://parcours.avoda-academie.com">OUVRIR → Plateforme Parcours France</a><a class="btn cyan" target="_blank" href="https://avoda-academie.com">OUVRIR → Site AVODA Académie</a><a class="btn navy" href="mailto:admissions@avoda-academie.com">ÉCRIRE → admissions@avoda-academie.com</a></div></section>
+<section class="screen"><h1>Fin de la consultation</h1><p class="lead">Merci d’avoir consulté le parcours France AVODA Académie.</p><div class="card"><h3>Aucune pré-inscription n’est envoyée automatiquement.</h3><p>Vous pouvez revenir à l’accueil ou quitter cette page.</p></div><div class="actions"><button class="btn" onclick="go(0)">RECOMMENCER → ACCUEIL</button></div></section>
+</div><footer><button class="navbtn" id="prev" onclick="prev()">← Retour</button><div class="dots" id="dots"></div><button class="navbtn home" onclick="go(0)">Accueil</button><button class="navbtn" id="next" onclick="next()">Suivant →</button></footer></section></main>
+<script>
+const track=document.getElementById('track'), screens=[...document.querySelectorAll('.screen')], dots=document.getElementById('dots');let cur=0;
+screens.forEach((_,i)=>{let d=document.createElement('span');d.className='dot';dots.appendChild(d)});
+function render(){track.style.transform=`translateX(-${cur*100}%)`;[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===cur));document.getElementById('prev').disabled=cur===0;document.getElementById('next').disabled=cur===screens.length-1}
+function go(i){cur=Math.max(0,Math.min(i,screens.length-1));render()}function prev(){go(cur-1)}function next(){go(cur+1)}
+let sx=0;track.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});track.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>60){dx<0?next():prev()}},{passive:true});render();
+</script><!-- Version premium mobile prête à être hébergée sur le domaine AVODA pour aperçu WhatsApp de marque. -->
+</body></html>
