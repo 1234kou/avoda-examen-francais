@@ -61,6 +61,8 @@ footer{position:absolute;left:0;right:0;bottom:0;min-height:72px;background:rgba
  .card{padding:15px;border-radius:18px}.actions .btn{width:100%}.check{padding:10px 11px;margin:9px 0}
  footer{min-height:64px;padding:8px 10px}.navbtn{padding:10px 11px;font-size:12px}.dots{max-width:92px;overflow:hidden}
 }
+
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:850;color:var(--navy)}.field input,.field select,.field textarea{width:100%;border:1px solid #cddce8;background:#fff;border-radius:13px;padding:12px 13px;font:inherit;color:#172333}.field textarea{min-height:86px;resize:vertical}.consent-row{display:flex;gap:12px;align-items:flex-start;margin-top:14px;padding:12px 14px;background:#fff;border:1px solid #dce8f3;border-radius:14px;line-height:1.4}.consent-row input{width:20px;height:20px;accent-color:var(--green);flex:none;margin-top:1px}.notice{padding:12px 14px;border-radius:14px;background:#edf7ff;border:1px solid #cfe7f8;color:var(--navy);font-size:13px;line-height:1.45;margin:12px 0}.form-status{display:none;margin-top:12px;padding:12px 14px;border-radius:14px;font-weight:800;line-height:1.4}.form-status.ok{display:block;background:#e5f7ef;color:#116f4a;border:1px solid #bfe7d4}.form-status.err{display:block;background:#fff0ee;color:#9f241b;border:1px solid #f2c8c3}.btn[disabled]{opacity:.55;cursor:not-allowed}@media(max-width:650px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -78,7 +80,23 @@ footer{position:absolute;left:0;right:0;bottom:0;min-height:72px;background:rgba
 <section class="screen"><h1>Tarifs DNB / BAC</h1><p class="lead">Choisissez le tarif que vous souhaitez consulter.</p><div class="grid"><div class="card"><h3>DNB FRANÇAIS</h3><div class="price" style="font-size:30px">890 000 FCFA / AN</div><p>Payable en 3 tranches.</p><div class="actions"><button class="btn cyan" onclick="go(5)">OUVRIR → Tarif DNB</button></div></div><div class="card"><h3>BAC FRANÇAIS</h3><div class="price" style="font-size:30px">970 000 FCFA / AN</div><p>Payable en 3 tranches.</p><div class="actions"><button class="btn" onclick="go(7)">OUVRIR → Tarif BAC</button></div></div></div></section>
 <section class="screen"><h1>Tarif Bac français</h1><div class="price">970 000 FCFA / AN</div><div class="pay">PAYABLE EN 3 TRANCHES</div><div class="card"><h3>Ce tarif prend en compte, sur une durée d’un an :</h3><p>✅ Le suivi administratif<br>✅ La préparation pédagogique<br>✅ Le suivi régulier de l’élève<br>✅ L’entraînement aux différentes épreuves<br>✅ L’accompagnement de l’élève d’octobre au Bac par un tuteur expérimenté pour chaque matière<br>✅ L’inscription sur la plateforme pédagogique AVODA</p></div><div class="actions"><button class="btn" onclick="go(8)">SUIVANT → Décision d’inscription</button></div></section>
 <section class="screen"><h1>Souhaitez-vous continuer ?</h1><p class="lead">Après avoir pris connaissance du parcours et du tarif, souhaitez-vous commencer la pré-inscription ?</p><div class="actions"><button class="btn green" onclick="go(9)">OUI → Pré-inscription</button><button class="btn navy" onclick="go(11)">NON → Fin de consultation</button><button class="btn light" onclick="go(6)">REVOIR → Tarifs DNB / BAC</button></div></section>
-<section class="screen"><h1>Pré-inscription</h1><p class="lead">Vous êtes arrivé à l’étape d’inscription. Préparez les informations suivantes.</p><div class="check"><i>✓</i><span>Nom et prénom du parent ou responsable.</span></div><div class="check"><i>✓</i><span>Nom et prénom de l’élève.</span></div><div class="check"><i>✓</i><span>Classe actuelle de l’élève.</span></div><div class="check"><i>✓</i><span>Parcours choisi : DNB français ou Bac français.</span></div><div class="check"><i>✓</i><span>Numéro de téléphone.</span></div><div class="actions"><button class="btn green" onclick="go(10)">SUIVANT → Informations utiles</button></div></section>
+<section class="screen"><h1>Pré-inscription AVODA</h1><p class="lead">Renseignez les informations ci-dessous. Les champs marqués * sont obligatoires.</p>
+<form id="preForm"><div class="form-grid">
+<div class="field"><label>Parcours demandé *</label><select name="type_parcours" required><option value="">Choisir</option><option value="DNB français">DNB français</option><option value="Bac français">Bac français</option></select></div>
+<div class="field"><label>Examen *</label><select name="examen" required><option value="">Choisir</option><option value="DNB français">DNB français</option><option value="Bac français">Bac français</option></select></div>
+<div class="field"><label>Nom du parent / responsable *</label><input name="nom_parent" autocomplete="family-name" required></div>
+<div class="field"><label>Prénom(s) du parent / responsable *</label><input name="prenom_parent" autocomplete="given-name" required></div>
+<div class="field"><label>Téléphone / WhatsApp *</label><input name="telephone" type="tel" autocomplete="tel" required></div>
+<div class="field"><label>Adresse e-mail</label><input name="email" type="email" autocomplete="email"></div>
+<div class="field"><label>Nom de l’élève *</label><input name="nom_eleve" required></div>
+<div class="field"><label>Prénom(s) de l’élève *</label><input name="prenom_eleve" required></div>
+<div class="field full"><label>Classe actuelle *</label><input name="classe_actuelle" required></div>
+<div class="field full"><label>Message ou précision éventuelle</label><textarea name="message"></textarea></div>
+</div>
+<label class="consent-row"><input type="checkbox" name="engagement" required><span>Je confirme ma demande de pré-inscription et souhaite être recontacté(e) par AVODA Académie.</span></label>
+<div class="notice"><b>Important :</b> l’envoi constitue une demande de pré-inscription. AVODA Académie vous recontactera pour la validation définitive.</div>
+<div id="formStatus" class="form-status" aria-live="polite"></div>
+<div class="actions"><button class="btn green" id="submitBtn" type="submit">ENVOYER MA PRÉ-INSCRIPTION →</button></div></form></section>
 <section class="screen"><h1>Informations utiles</h1><p class="lead">Vous restez dans la présentation. Les liens ci-dessous sont uniquement des accès complémentaires.</p><div class="actions"><a class="btn" target="_blank" href="https://parcours.avoda-academie.com">OUVRIR → Plateforme Parcours France</a><a class="btn cyan" target="_blank" href="https://avoda-academie.com">OUVRIR → Site AVODA Académie</a><a class="btn navy" href="mailto:admissions@avoda-academie.com">ÉCRIRE → admissions@avoda-academie.com</a></div></section>
 <section class="screen"><h1>Fin de la consultation</h1><p class="lead">Merci d’avoir consulté le parcours France AVODA Académie.</p><div class="card"><h3>Aucune pré-inscription n’est envoyée automatiquement.</h3><p>Vous pouvez revenir à l’accueil ou quitter cette page.</p></div><div class="actions"><button class="btn" onclick="go(0)">RECOMMENCER → ACCUEIL</button></div></section>
 </div><footer><button class="navbtn" id="prev" onclick="prev()">← Retour</button><div class="dots" id="dots"></div><button class="navbtn home" onclick="go(0)">Accueil</button><button class="navbtn" id="next" onclick="next()">Suivant →</button></footer></section></main>
@@ -87,6 +105,34 @@ const track=document.getElementById('track'), screens=[...document.querySelector
 screens.forEach((_,i)=>{let d=document.createElement('span');d.className='dot';dots.appendChild(d)});
 function render(){track.style.transform=`translateX(-${cur*100}%)`;[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===cur));document.getElementById('prev').disabled=cur===0;document.getElementById('next').disabled=cur===screens.length-1}
 function go(i){cur=Math.max(0,Math.min(i,screens.length-1));render()}function prev(){go(cur-1)}function next(){go(cur+1)}
+
 let sx=0;track.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});track.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>60){dx<0?next():prev()}},{passive:true});render();
+const API_URL='https://avoda-examen-francais-api.onrender.com/api/preinscriptions';
+const preForm=document.getElementById('preForm');
+if(preForm){
+  const parcours=preForm.elements.type_parcours, examen=preForm.elements.examen;
+  parcours.addEventListener('change',()=>{if(parcours.value) examen.value=parcours.value});
+  preForm.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    if(!preForm.reportValidity()) return;
+    const status=document.getElementById('formStatus'), btn=document.getElementById('submitBtn');
+    btn.disabled=true; btn.textContent='ENVOI EN COURS…'; status.className='form-status'; status.textContent='';
+    const f=new FormData(preForm);
+    const payload={
+      type_parcours:f.get('type_parcours'), nom_parent:f.get('nom_parent'), prenom_parent:f.get('prenom_parent'),
+      telephone:f.get('telephone'), email:f.get('email')||null, nom_eleve:f.get('nom_eleve'), prenom_eleve:f.get('prenom_eleve'),
+      classe_actuelle:f.get('classe_actuelle'), examen:f.get('examen'), message:f.get('message')||null, engagement:true
+    };
+    try{
+      const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      const data=await r.json().catch(()=>({}));
+      if(!r.ok||data.success===false) throw new Error(data.message||'Envoi impossible.');
+      status.className='form-status ok'; status.textContent='Pré-inscription enregistrée avec succès. AVODA Académie vous recontactera.';
+      preForm.reset();
+    }catch(err){
+      status.className='form-status err'; status.textContent="La pré-inscription n’a pas pu être envoyée. Vérifiez votre connexion puis réessayez.";
+    }finally{btn.disabled=false;btn.textContent='ENVOYER MA PRÉ-INSCRIPTION →';}
+  });
+}
 </script><!-- Version premium mobile prête à être hébergée sur le domaine AVODA pour aperçu WhatsApp de marque. -->
 </body></html>
